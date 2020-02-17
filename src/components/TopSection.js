@@ -166,7 +166,7 @@ const WINDOWS = { name: "windows", executable: "exe" }
 const LINUX = { name: "linux", executable: "appimage" }
 
 const getOS = () => {
-  const { platform } = window.navigator
+  const { platform } = typeof window !== "undefined" && window.navigator
   const macosPlatforms = ["Macintosh", "MacIntel", "MacPPC", "Mac68K"]
   const windowsPlatforms = ["Win32", "Win64", "Windows", "WinCE"]
 
@@ -181,6 +181,8 @@ const getOS = () => {
   if (/Linux/.test(platform)) {
     return LINUX
   }
+
+  return {}
 }
 
 export default ({ links }) => {
@@ -214,7 +216,7 @@ export default ({ links }) => {
     fetchDownloadLink()
   }, [])
 
-  const { name } = getOS()
+  const { name = "" } = getOS()
 
   return (
     <S.Section id="scene">
