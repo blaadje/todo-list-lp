@@ -48,7 +48,7 @@ export default () => {
           name="description"
           content="Todolist is the application which allows you to organise your tasks in a fast & simple way"
         />
-        <link rel="canonical" href="http://mysite.com/example" />
+        <link rel="canonical" href="http://todo-list.io/" />
       </Helmet>
       <GlobalStyle />
       <TopSection links={links} />

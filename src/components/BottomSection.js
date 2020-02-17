@@ -50,10 +50,10 @@ export default () => (
         <S.Wrapper>
           <S.Img src={filters} alt="filters" />
           <S.Content>
-            <S.Title>Filter Tasks</S.Title>
+            <S.Title>Filter tasks</S.Title>
             <S.Description>
-              Choose which tasks to display by filtering them either by the date
-              or status (todo/completed)
+              Choose which task to display by filtering them either by date or
+              status (todo/completed)
             </S.Description>
           </S.Content>
         </S.Wrapper>

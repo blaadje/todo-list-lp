@@ -40,15 +40,17 @@ const S = {
     pointer-events: all;
   `,
   TopContent: styled.div`
-    position: absolute;
-    left: 0 !important;
-    right: 0 !important;
-    margin-bottom: 300px;
+    position: relative !important;
     margin: 0 auto;
-    margin-top: 150px;
+    margin-top: 80px;
     text-align: center;
     max-width: 640px;
     pointer-events: all;
+    margin-bottom: 180px;
+    @media ${device.desktop} {
+      margin-bottom: 250px;
+      margin-top: 150px;
+    }
   `,
   Title: styled.h1`
     color: white;
@@ -98,7 +100,11 @@ const S = {
     flex-shrink: 0;
     background: transparent;
     color: white;
+    width: 100%;
     box-shadow: inset 0px 0px 0px 1px white;
+    @media ${device.tablet} {
+      width: auto;
+    }
   `,
   Distributions: styled.span`
     align-self: flex-start;
@@ -110,16 +116,12 @@ const S = {
   `,
   ImagesWrapper: styled.div`
     display: none !important;
-    position: absolute !important;
     width: 100%;
     top: initial !important;
     @media ${device.tablet} {
-      bottom: -60% !important;
+      position: relative !important;
       display: inline-block !important;
       margin: 0 auto;
-    }
-    @media ${device.desktop} {
-      bottom: -45% !important;
     }
   `,
   Img: styled.img`
@@ -216,7 +218,7 @@ export default ({ links }) => {
     fetchDownloadLink()
   }, [])
 
-  const { name = "" } = getOS()
+  const { name = null } = getOS()
 
   return (
     <S.Section id="scene">
@@ -225,13 +227,17 @@ export default ({ links }) => {
       <S.TopContent data-depth="0.8">
         <S.Title>It's time to be productive</S.Title>
         <S.SubTitle>
-          Todolist is the application which allows you to organise your tasks in
+          Todolist is the application which allow you to organise your tasks in
           a fast & simple way
         </S.SubTitle>
         <S.DownloadsWrapper>
           <S.ButtonsWrapper>
             <S.Link href={downloadLink}>
-              <S.PimaryButton>Download for {name}</S.PimaryButton>
+              <S.PimaryButton>
+                {!name
+                  ? "Your platform is not supported"
+                  : `Download for ${name}`}
+              </S.PimaryButton>
             </S.Link>
             <S.Link
               rel="nofollow"

@@ -96,7 +96,7 @@ export default () => {
       title: "Customise the application",
       subTitle: "with a color picker",
       description: `Choose the color of your choice to define the whole application style
-      to get something to fit your desktop.`,
+      to fit your desktop.`,
       imgUrl: colorpicker,
     },
   ]
