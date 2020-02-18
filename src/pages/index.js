@@ -46,9 +46,9 @@ export default () => {
         <title>Organise your tasks quickly and simply</title>
         <meta
           name="description"
-          content="Todolist is the application which allows you to organise your tasks in a fast & simple way"
+          content="Todolist is the application which allow you to organise your tasks in a fast & simple way"
         />
-        <link rel="canonical" href="http://todo-list.io/" />
+        <link rel="canonical" href="https://todo-list.io/" />
       </Helmet>
       <GlobalStyle />
       <TopSection links={links} />
