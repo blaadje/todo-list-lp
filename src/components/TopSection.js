@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Nav from "../components/Nav"
+import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 import vectorbackground from "../images/vectorbackground.svg"
 import bluebackground from "../images/bluebackground.svg"
 import appyellow from "../images/appyellow.png"
@@ -218,6 +219,13 @@ export default ({ links }) => {
     fetchDownloadLink()
   }, [])
 
+  const handleDownloadClick = () => {
+    trackCustomEvent({
+      category: "Download",
+      action: "Click",
+    })
+  }
+
   const { name = null } = getOS()
 
   return (
@@ -233,7 +241,7 @@ export default ({ links }) => {
         <S.DownloadsWrapper>
           <S.ButtonsWrapper>
             <S.Link href={downloadLink}>
-              <S.PimaryButton>
+              <S.PimaryButton onClick={handleDownloadClick}>
                 {!name
                   ? "Your platform is not supported"
                   : `Download for ${name}`}
