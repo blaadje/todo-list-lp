@@ -77,6 +77,7 @@ const S = {
   `,
   Img: styled.img`
     z-index: 2;
+    border-radius: 0.2rem;
     box-shadow: 0px 0px 52px rgba(0, 0, 0, 0.14);
     margin: 40px;
     height: 350px;
