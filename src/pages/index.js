@@ -43,7 +43,7 @@ export default () => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Todo-list | Organise your tasks quickly and simply</title>
+        <title>Todolist | Organize your tasks quickly and simply</title>
         <meta
           name="description"
           content="Todolist is a free desktop application allowing you to organise your tasks in a fast & simple way. To-do list application available on windows, mac and linux without any sign-up."
