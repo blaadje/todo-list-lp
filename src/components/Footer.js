@@ -62,7 +62,7 @@ export default ({ links }) => (
         <S.Img src={logo} alt="Logo" />
         <S.Logo>Todolist</S.Logo>
       </S.LogoWrapper>
-      <S.CopyRights>© 2020 Charlot Alexandre</S.CopyRights>
+      <S.CopyRights>© 2020 Alexandre Charlot</S.CopyRights>
       <S.LinksWrapper>
         {links.map(({ value, label }) => {
           return (

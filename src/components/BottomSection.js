@@ -55,8 +55,8 @@ export default () => (
           <S.Content>
             <S.Title>Filter tasks</S.Title>
             <S.Description>
-              Choose which task to display by filtering them either by tags,
-              date or status (todo/completed).
+              Choose tasks to display by filtering them either by tags, date or
+              status (to-do/completed).
             </S.Description>
           </S.Content>
         </S.Wrapper>
