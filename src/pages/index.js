@@ -19,7 +19,7 @@ const S = {
 export default () => {
   const links = [
     {
-      value: "https://github.com/blaadje/Todo-list/projects/1",
+      value: "https://github.com/blaadje/Todolist/projects/1?fullscreen=true",
       label: "roadmap",
     },
     {
