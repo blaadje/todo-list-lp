@@ -235,8 +235,8 @@ export default ({ links }) => {
       <S.TopContent data-depth="0.8">
         <S.Title>It's time to be productive</S.Title>
         <S.SubTitle>
-          Todolist is the application which allow you to organise your tasks in
-          a fast & simple way
+          Todolist is a free desktop application allowing you to organise your
+          tasks in a fast & simple way
         </S.SubTitle>
         <S.DownloadsWrapper>
           <S.ButtonsWrapper>
