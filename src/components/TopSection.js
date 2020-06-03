@@ -166,7 +166,7 @@ const S = {
 
 const MAC = { name: "mac", executable: "dmg" }
 const WINDOWS = { name: "windows", executable: "exe" }
-const LINUX = { name: "linux", executable: "appimage" }
+const LINUX = { name: "linux", executable: "AppImage" }
 
 const getOS = () => {
   const { platform } = typeof window !== "undefined" && window.navigator
