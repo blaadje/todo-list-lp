@@ -19,13 +19,14 @@ const S = {
 export default () => {
   const links = [
     {
-      value: "https://github.com/blaadje/Todolist/projects/1?fullscreen=true",
+      value:
+        "https://www.notion.so/79813335e6404daa825cce1c257977ce?v=c1cc2a2053dc4002b381bbbb2686886c",
       label: "roadmap",
     },
-    {
-      value: "https://github.com/blaadje/Todo-list/issues",
-      label: "issues",
-    },
+    // {
+    //   value: "https://github.com/blaadje/Todo-list/issues",
+    //   label: "issues",
+    // },
   ]
 
   React.useEffect(() => {
