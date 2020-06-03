@@ -195,7 +195,7 @@ export default ({ links }) => {
     const fetchDownloadLink = async () => {
       let link = null
       const response = await fetch(
-        "https://api.github.com/repos/blaadje/Todo-list/releases/latest"
+        "https://api.github.com/repos/blaadje/Todolist/releases/latest"
       )
       const { assets = [] } = await response.json()
 
