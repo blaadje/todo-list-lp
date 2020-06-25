@@ -189,24 +189,28 @@ const getOS = () => {
 }
 
 export default ({ links }) => {
-  const [downloadLink, setDownloadLink] = React.useState()
+  const downloadRef = React.useRef()
+  const [assetId, setAssetId] = React.useState(null)
 
   React.useEffect(() => {
     const fetchDownloadLink = async () => {
-      let link = null
       const response = await fetch(
-        "https://api.github.com/repos/blaadje/Todolist/releases/latest"
+        "https://api.github.com/repos/blaadje/Todolist/releases/latest",
+        {
+          headers: {
+            Authorization: `token ${process.env.GATSBY_GITHUB_PRIVATE_TOKEN}`,
+          },
+        }
       )
       const { assets = [] } = await response.json()
+      console.log(assets)
 
-      assets.forEach(({ name, browser_download_url }) => {
+      assets.forEach(({ name, id, browser_download_url }) => {
         if (name.includes(getOS().executable) && !name.includes("blockmap")) {
-          link = browser_download_url
+          setAssetId(id)
           return
         }
       })
-
-      setDownloadLink(link)
     }
 
     const scene = document.getElementById("scene")
@@ -219,7 +223,43 @@ export default ({ links }) => {
     fetchDownloadLink()
   }, [])
 
-  const handleDownloadClick = () => {
+  const handleDownloadClick = async event => {
+    event.preventDefault()
+    // https://api.github.com/repos/octocat/Hello-World/releases/assets/1
+    // let blob = new Blob(
+    //   [
+    //     `https://api.github.com/repos/blaadje/Todolist/releases/assets/${assetId}`,
+    //   ],
+    //   { type: "application/octet-stream" }
+    // )
+    // downloadRef.current.href = URL.createObjectURL(blob)
+    // console.log(URL.createObjectURL(blob))
+    // downloadRef.current.download = "data.csv"
+    // downloadRef.current.click()
+    const download = `https://api.github.com/repos/blaadje/Todolist/releases/assets/${assetId}?access_token=${process.env.GATSBY_GITHUB_PRIVATE_TOKEN}`
+    // const downloadLink = `https://${process.env.GATSBY_GITHUB_PRIVATE_TOKEN}:@api.github.com/repos/blaadje/Todolist/releases/assets/${assetId}`
+
+    const foo = await fetch(download, {
+      headers: {
+        Accept: "application/octet-stream",
+        Authorization: `token ${process.env.GATSBY_GITHUB_PRIVATE_TOKEN}`,
+        "User-Agent": "",
+      },
+    })
+      .then(res => {
+        console.log(res)
+        return res.blob()
+      })
+      .then(blob => {
+        console.log(blob)
+        downloadRef.current.href = URL.createObjectURL(blob)
+        console.log(URL.createObjectURL(blob))
+        downloadRef.current.download = "data.csv"
+        downloadRef.current.click()
+      })
+    // console.log(foo)
+    // const bar = await foo.json()
+    // console.log(bar)
     trackCustomEvent({
       category: "Download",
       action: "Click",
@@ -240,7 +280,7 @@ export default ({ links }) => {
         </S.SubTitle>
         <S.DownloadsWrapper>
           <S.ButtonsWrapper>
-            <S.Link href={downloadLink}>
+            <S.Link href="#" ref={downloadRef}>
               <S.PimaryButton onClick={handleDownloadClick}>
                 {!name
                   ? "Your platform is not supported"
