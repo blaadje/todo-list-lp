@@ -2,6 +2,9 @@ import React from "react"
 import * as GlobalS from "../globalStyle"
 import calendar from "../images/calendar.png"
 import colorpicker from "../images/colorpicker.png"
+import autoupdates from "../images/autoupdates.png"
+import dragdrop from "../images/dragdrop.png"
+import tags from "../images/tags.png"
 import { device } from "../globalStyle"
 import ScrollAnimation from "react-animate-on-scroll"
 
@@ -100,6 +103,24 @@ export default () => {
       to fit your desktop.`,
       imgUrl: colorpicker,
     },
+    {
+      title: "Categorize your tasks",
+      subTitle: "by tags",
+      description: `Assign tags to tasks and regroup them.`,
+      imgUrl: tags,
+    },
+    {
+      title: "Get new features automatically",
+      subTitle: "with auto update",
+      description: `Watch out for the red dot, it will download the latest published version and install it.`,
+      imgUrl: autoupdates,
+    },
+    {
+      title: "Priorize your tasks",
+      subTitle: "with drag and drop",
+      description: `Drag your tasks to refine the priority you want to make them`,
+      imgUrl: dragdrop,
+    },
   ]
   return (
     <S.Section>
@@ -169,7 +190,7 @@ export default () => {
                     <S.SubTitle>{subTitle}</S.SubTitle>
                     <S.Description>{description}</S.Description>
                   </S.Content>
-                  <S.Img src={imgUrl} alt="calendar" />
+                  <S.Img src={imgUrl} alt={title} />
                 </S.Feature>
               </GlobalS.Container>
             </ScrollAnimation>
