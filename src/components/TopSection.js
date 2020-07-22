@@ -40,6 +40,11 @@ const S = {
     z-index: 3;
     pointer-events: all;
   `,
+  Badge: styled.img`
+    margin-bottom: 0.2rem;
+    margin-right: 1rem;
+    width: 85px;
+  `,
   TopContent: styled.div`
     position: relative !important;
     margin: 0 auto;
@@ -255,6 +260,10 @@ export default ({ links }) => {
               <S.SecondaryButton>All platforms versions</S.SecondaryButton>
             </S.Link>
           </S.ButtonsWrapper>
+          <div>
+            <S.Badge src="https://img.shields.io/github/downloads/blaadje/Todolist/total.svg" />
+            <S.Badge src="https://img.shields.io/github/v/release/blaadje/Todolist" />
+          </div>
           <S.Distributions>macOS, Windows, and Linux</S.Distributions>
         </S.DownloadsWrapper>
       </S.TopContent>
